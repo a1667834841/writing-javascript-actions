@@ -2,6 +2,20 @@ name: "my hello action"
 
 description: "hello github actions"
 
+inputs: # 不是必要的
+  first-greeting:
+    description: "my hello action"
+    required: true
+    default: "Hubot"
+  second-greeting:
+    description: "another person to greet"
+    required: true
+    default: "Mona the Octocat"
+
+  third-greeting:
+    description: "a third greeting"
+    required: false
+    
 runs: # The command to run when the action executes.
   using: "node12"
   main: "main.js"
