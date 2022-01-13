@@ -13,5 +13,7 @@ jobs:
       
       - name: hello-action
         uses: ./.github/actions/hello-world
+        with: # 引用 action.yml 内的inputs值
+          first-greeting: "not defualt value"
 
 
