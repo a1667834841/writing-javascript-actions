@@ -1,19 +1,38 @@
 # This is a basic workflow to help you get started with Actions
 
+# name: JS Actions
+
+# on: [push]
+
+# jobs:
+#   action:
+#     runs-on: ubuntu-latest
+    
+#     steps:
+#       - uses: actions/checkout@v1
+      
+#       - name: hello-action
+#         uses: ./.github/actions/hello-world
+#         with: # 引用 action.yml 内的inputs值
+#           first-greeting: "not defualt value"
+
 name: JS Actions
 
-on: [push]
+on:
+  pull_request:
+    types: [first-joke]
 
 jobs:
   action:
     runs-on: ubuntu-latest
-    
+
     steps:
       - uses: actions/checkout@v1
-      
+
       - name: hello-action
         uses: ./.github/actions/hello-world
-        with: # 引用 action.yml 内的inputs值
-          first-greeting: "not defualt value"
+
+      - name: ha-ha
+        uses: ./.github/actions/joke-action
 
 
