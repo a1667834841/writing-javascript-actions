@@ -1,26 +1,8 @@
-# This is a basic workflow to help you get started with Actions
-
-# name: JS Actions
-
-# on: [push]
-
-# jobs:
-#   action:
-#     runs-on: ubuntu-latest
-    
-#     steps:
-#       - uses: actions/checkout@v1
-      
-#       - name: hello-action
-#         uses: ./.github/actions/hello-world
-#         with: # 引用 action.yml 内的inputs值
-#           first-greeting: "not defualt value"
-
 name: JS Actions
 
 on:
   pull_request:
-    types: [first-joke]
+    types: [labeled]
 
 jobs:
   action:
@@ -34,5 +16,10 @@ jobs:
 
       - name: ha-ha
         uses: ./.github/actions/joke-action
-
-
+        id: joke
+        
+      - name: create-issue
+        uses: ./.github/actions/issue-maker
+        with:
+          repo-token: ${{secrets.GITHUB_TOKEN}}
+          joke: ${{steps.jokes.outputs.joke-output}}
