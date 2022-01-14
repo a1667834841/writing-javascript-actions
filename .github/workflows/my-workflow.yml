@@ -4,7 +4,6 @@ on:
   pull_request:
     types: [labeled]
 
-
 jobs:
   action:
     runs-on: ubuntu-latest
