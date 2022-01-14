@@ -1,8 +1,16 @@
+
 # This is a basic workflow to help you get started with Actions
 
 name: JS Actions
 
 on: [push]
+
+name: JS Actions
+
+on:
+  pull_request:
+    types: [labeled]
+
 
 jobs:
   action:
@@ -15,5 +23,17 @@ jobs:
         uses: ./.github/actions/hello-world
         with: # 引用 action.yml 内的inputs值
           first-greeting: "not defualt value"
+
+    
+
+        id: joke
+        
+      - name: create-issue
+        uses: ./.github/actions/issue-maker
+        with:
+          repo-token: ${{secrets.GITHUB_TOKEN}}
+          joke: ${{steps.jokes.outputs.joke-output}}
+
+
 
 
