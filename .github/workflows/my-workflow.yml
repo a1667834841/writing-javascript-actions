@@ -16,6 +16,7 @@ jobs:
 
       - name: ha-ha
         uses: ./.github/actions/joke-action
+        id: joke
         
       - name: create-issue
         uses: ./.github/actions/issue-maker
