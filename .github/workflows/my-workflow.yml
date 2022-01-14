@@ -4,7 +4,6 @@ on:
   pull_request:
     types: [labeled]
 
-
 jobs:
   action:
     runs-on: ubuntu-latest
@@ -17,8 +16,8 @@ jobs:
 
       - name: ha-ha
         uses: ./.github/actions/joke-action
-        id: joke
-        
+        id: jokes
+
       - name: create-issue
         uses: ./.github/actions/issue-maker
         with:
